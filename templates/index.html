@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+
+  <title>Portfolio | Adelphe Angelo</title>
+  <style>
+    /* Floating Icons Animation */
+    .animate-float-left {
+      animation: float-left 5s infinite ease-in-out;
+    }
+    .animate-float-right {
+      animation: float-right 5s infinite ease-in-out;
+    }
+    .animate-float-up {
+      animation: float-up 5s infinite ease-in-out;
+    }
+    .animate-float-down {
+      animation: float-down 5s infinite ease-in-out;
+    }
+  
+    @keyframes float-left {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-10px); }
+    }
+    @keyframes float-right {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(10px); }
+    }
+    @keyframes float-up {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes float-down {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+  
+    /* Positioning for Floating Icons */
+    i.bx1 {
+      position: absolute;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans overflow-x-hidden">
+
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-gray-900/70 text-white shadow-md">
+    <div class="flex justify-between items-center h-16 px-6">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-lg font-bold rounded-full flex items-center justify-center shadow-md">
+          A
+        </div>
+        <span class="text-2xl font-extrabold tracking-wide">Adelphe Angelo</span>
+      </div>
+  
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex gap-6 font-medium text-sm uppercase tracking-wide items-center">
+        <a href="#home" class="hover:text-blue-400 transition">Accueil</a>
+        <a href="#about" class="hover:text-blue-400 transition">À propos</a>
+        <a href="#skills" class="hover:text-blue-400 transition">Compétences</a>
+        <a href="#projects" class="hover:text-blue-400 transition">Projets</a>
+        <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+        <a href="#" class="px-4 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 transition shadow-md">
+          <i class='bx bx-file'></i> CV
+        </a>
+      </nav>
+  
+      <!-- Mobile Burger -->
+      <div class="lg:hidden">
+        <button id="menu-btn" class="focus:outline-none">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden flex-col px-6 pb-6 pt-4 bg-gray-800/80 backdrop-blur-md rounded-b-xl shadow-md animate__animated animate__fadeInDown">
+      <a href="#home" class="block py-2 border-b border-gray-700 hover:text-blue-400 transition">Accueil</a>
+      <a href="#about" class="block py-2 border-b border-gray-700 hover:text-blue-400 transition">À propos</a>
+      <a href="#skills" class="block py-2 border-b border-gray-700 hover:text-blue-400 transition">Compétences</a>
+      <a href="#projects" class="block py-2 border-b border-gray-700 hover:text-blue-400 transition">Projets</a>
+      <a href="#contact" class="block py-2 border-b border-gray-700 hover:text-blue-400 transition">Contact</a>
+      <a href="#" class="block mt-4 text-center px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 transition shadow-md">
+        Télécharger le CV
+      </a>
+    </div>
+  </header>
+  
+  
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+  <!-- Background Blob -->
+  <div class="absolute -top-32 -left-32 w-[600px] h-[600px] bg-blue-500/15 rounded-full blur-3xl z-0 animate-pulse"></div>
+  <div class="absolute -bottom-32 -right-32 w-[600px] h-[600px] bg-purple-500/15 rounded-full blur-3xl z-0 animate-pulse"></div>
+  <div class="absolute -top-5 -right-5 w-[400px] h-[400px] bg-red-500/15 rounded-full blur-3xl z-0 animate-pulse"></div>
+  <div class="absolute -bottom-5 -left-5 w-[400px] h-[400px] bg-green-500/15 rounded-full blur-3xl z-0 animate-pulse"></div>
+
+  <!-- Floating Tech Icons -->
+<!-- Floating Tech Icons -->
+<div class="absolute inset-0 z-10 pointer-events-none">
+  <!-- Frontend / Backend -->
+  <i class='bx bx1 bxl-html5 text-5xl text-orange-400 animate-float-left' style="top: 20%; left: 8%;"></i>
+  <i class='bx bx1 bxl-css3 text-5xl text-blue-400 animate-float-right' style="top: 25%; right: 10%;"></i>
+  <i class='bx bx1 bxl-javascript text-5xl text-yellow-300 animate-float-up' style="top: 50%; left: 12%;"></i>
+  <i class='bx bx1 bxl-react text-5xl text-cyan-400 animate-float-down' style="bottom: 20%; right: 12%;"></i>
+  <i class='bx bx1 bxl-python text-5xl text-yellow-400 animate-float-left' style="top: 65%; left: 15%;"></i>
+  <i class='bx bx1 bxl-nodejs text-5xl text-green-400 animate-float-right' style="top: 70%; right: 18%;"></i>
+  <i class='bx bx1 bxl-bootstrap text-5xl text-purple-500 animate-float-left' style="top: 10%; left: 30%;"></i>
+  <i class='bx bx1 bxl-tailwind-css text-5xl text-sky-400 animate-float-down' style="bottom: 40%; right: 40%;"></i>
+  <i class='bx bx1 bxl-flutter text-5xl text-blue-400 animate-float-left' style="bottom: 10%; left: 25%;"></i>
+  <i class='bx bx1 bxl-postgresql text-5xl text-blue-300 animate-float-down' style="top: 40%; right: 40%;"></i>
+
+  <!-- DevOps / Cloud -->
+  <i class='bx bx1 bxl-docker text-5xl text-blue-500 animate-float-up' style="top: 35%; left: 45%;"></i>
+  <i class='bx bx1 bxl-kubernetes text-5xl text-blue-600 animate-float-down' style="top: 45%; right: 15%;"></i>
+  <i class='bx bx1 bxl-aws text-5xl text-orange-500 animate-float-left' style="top: 35%; left: 60%;"></i>
+  <i class='bx bx1 bxl-azure text-5xl text-blue-400 animate-float-right' style="bottom: 15%; right: 70%;"></i>
+  <i class='bx bx1 bxs-cloud text-5xl text-sky-500 animate-float-left' style="top: 10%; left: 75%;"></i>
+
+  <!-- Tools / Langs -->
+  <i class='bx bx1 bxl-git text-5xl text-red-500 animate-float-up' style="top: 15%; left: 50%;"></i>
+  <i class='bx bx1 bxl-mongodb text-5xl text-green-600 animate-float-right' style="bottom: 50%; right: 30%;"></i>
+  <i class='bx bx1 bxl-typescript text-5xl text-blue-800 animate-float-down' style="bottom: 60%; right: 60%;"></i>
+  <i class='bx bx1 bxl-linux text-5xl text-gray-400 animate-float-up' style="bottom: 25%; left: 60%;"></i>
+  <i class='bx bx1 bxl-tux text-5xl text-white animate-float-up' style="top: 65%; left: 30%;"></i>
+  <i class='bx bx1 bxl-microsoft-teams text-5xl text-blue-500 animate-float-right' style="top: 55%; right: 50%;"></i>
+  <i class='bx bx1 bxl-graphql text-5xl text-pink-500 animate-float-left' style="top: 70%; left: 40%;"></i>
+</div>
+
+
+  <!-- Main Intro Content -->
+  <div class="relative z-20">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-purple-500 leading-tight mb-6">
+      Bonjour, je suis<br class="hidden md:inline-block"> Adelphe Angelo
+    </h1>
+    <p class="text-lg md:text-2xl text-gray-300 max-w-xl mx-auto mb-10">
+      Développeur Fullstack & DevOps, je crée des expériences numériques modernes et performantes.
+    </p>
+  </div>
+
+  <!-- Terminal Style Box -->
+  <div class="relative z-20 w-full max-w-xl mx-auto">
+    <div class="bg-gray-900 rounded-xl shadow-xl border border-gray-800 overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-2 bg-gray-800 border-b border-gray-700">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+          <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+        </div>
+        <span class="text-xs text-gray-400">~/portfolio</span>
+      </div>
+      <div class="p-6 text-left">
+        <pre class="text-sm font-mono text-green-400 leading-relaxed whitespace-pre-wrap">
+<span class="text-gray-500">// Welcome to my portfolio</span>
+<span class="text-green-500">adelphe@portfolio $ <span class="text-white">whoami</span></span>
+<span class="text-blue-400">Adelphe Angelo</span>
+
+<span class="text-green-500">adelphe@portfolio $ <span class="text-white">skills</span></span>
+<span class="text-yellow-500">Frontend:</span> <span class="text-gray-300">HTML, CSS, React, Tailwind</span>
+<span class="text-yellow-500">Backend:</span> <span class="text-gray-300">Flask, FastAPI, Django, Node</span>
+<span class="text-yellow-500">DevOps:</span> <span class="text-gray-300">Docker, Kubernetes, CI/CD</span>
+
+<span class="text-green-500">adelphe@portfolio $ <span class="text-white">projects</span></span>
+<span class="text-gray-400">Fetching latest projects...</span>
+        </pre>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+  
+<!-- About Section -->
+<section id="about" class="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 flex items-center py-16">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col-reverse lg:flex-row items-center gap-16">
+    
+    <!-- Text Section -->
+    <div class="flex-1 text-center lg:text-left">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6">
+        À propos de moi
+      </h2>
+      <p class="text-lg text-gray-300 leading-relaxed mb-8">
+        Développeur passionné par le web et les technologies modernes, je conçois des expériences numériques performantes et fluides. Que ce soit en front-end, back-end ou DevOps, je m'engage à fournir des solutions fiables et bien pensées.
+      </p>
+
+      <!-- Skills Icons -->
+      <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6 mb-10">
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-html5 text-4xl text-orange-400'></i>
+          <span class="text-sm text-gray-400">HTML</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-javascript text-4xl text-yellow-300'></i>
+          <span class="text-sm text-gray-400">JavaScript</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-python text-4xl text-yellow-400'></i>
+          <span class="text-sm text-gray-400">Python</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-react text-4xl text-blue-400'></i>
+          <span class="text-sm text-gray-400">React</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-nodejs text-4xl text-green-400'></i>
+          <span class="text-sm text-gray-400">Node.js</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <i class='bx bxl-docker text-4xl text-blue-500'></i>
+          <span class="text-sm text-gray-400">Docker</span>
+        </div>
+      </div>
+
+      <a href="#contact" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-full shadow hover:bg-blue-500 transition duration-300">
+        Me contacter
+      </a>
+    </div>
+
+    <!-- Image Section -->
+    <div class="flex-1">
+      <div class="w-full rounded-3xl overflow-hidden shadow-xl ring-1 ring-white/10 backdrop-blur-sm">
+        <img src="https://www.linformaticien.com/images/00-articles/00-PICTOS/hacker-3342696_1280.jpeg" alt="Adelphe Angelo" class="w-full h-auto object-cover">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Skills Section -->
+<section id="skills" class="py-20 px-6 bg-gray-900 text-white relative overflow-hidden">
+  <!-- Animated Icons -->
+  <div class="absolute inset-0 z-10 pointer-events-none">
+    <i class='bx bxl-html5 text-5xl text-orange-400 animate-float-left' style="top: 20%; left: 8%; position: absolute;"></i>
+    <i class='bx bxl-css3 text-5xl text-blue-400 animate-float-right' style="top: 25%; right: 10%; position: absolute;"></i>
+    <i class='bx bxl-javascript text-5xl text-yellow-300 animate-float-up' style="top: 50%; left: 12%; position: absolute;"></i>
+    <i class='bx bxl-react text-5xl text-cyan-400 animate-float-down' style="bottom: 20%; right: 12%; position: absolute;"></i>
+    <i class='bx bxl-python text-5xl text-yellow-400 animate-float-left' style="top: 65%; left: 15%; position: absolute;"></i>
+    <i class='bx bxl-nodejs text-5xl text-green-400 animate-float-right' style="top: 70%; right: 18%; position: absolute;"></i>
+    <i class='bx bxl-docker text-5xl text-blue-500 animate-float-up' style="top: 35%; left: 45%; position: absolute;"></i>
+    <i class='bx bxl-tailwind-css text-5xl text-sky-400 animate-float-down' style="bottom: 40%; right: 40%; position: absolute;"></i>
+  </div>
+
+  <div class="relative z-20 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">🧠 Mes Compétences</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Frontend -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bxl-html5 text-5xl text-orange-500 mb-4 hover:text-orange-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Frontend</h3>
+        <p class="text-gray-400 hover:text-gray-300">HTML, CSS, Tailwind, Bootstrap, React.js</p>
+      </div>
+
+      <!-- Backend -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bxl-python text-5xl text-yellow-400 mb-4 hover:text-yellow-300'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Backend</h3>
+        <p class="text-gray-400 hover:text-gray-300">Python, Flask, FastAPI, API Restful</p>
+      </div>
+
+      <!-- Bases de données -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bxs-data text-5xl text-green-400 mb-4 hover:text-green-300'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Bases de données</h3>
+        <p class="text-gray-400 hover:text-gray-300">MySQL, PostgreSQL, Oracle</p>
+      </div>
+
+      <!-- DevOps -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bxl-docker text-5xl text-blue-400 mb-4 hover:text-blue-300'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">DevOps</h3>
+        <p class="text-gray-400 hover:text-gray-300">CI/CD, Docker, Kubernetes, SSH/RDP</p>
+      </div>
+
+      <!-- Sécurité -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bx-lock-alt text-5xl text-red-500 mb-4 hover:text-red-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Sécurité</h3>
+        <p class="text-gray-400 hover:text-gray-300">OAuth, SSL/TLS, Authentification forte</p>
+      </div>
+
+      <!-- API Mastery -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bx-code-alt text-5xl text-purple-500 mb-4 hover:text-purple-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">API Mastery</h3>
+        <p class="text-gray-400 hover:text-gray-300">RESTful, GraphQL, intégration & testing</p>
+      </div>
+
+      <!-- Serveurs -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bx-server text-5xl text-cyan-400 mb-4 hover:text-cyan-300'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Gestion des serveurs</h3>
+        <p class="text-gray-400 hover:text-gray-300">Déploiement, maintenance, accès distant</p>
+      </div>
+
+      <!-- Sécurité réseau -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bx-shield text-5xl text-orange-500 mb-4 hover:text-orange-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Sécurité réseau</h3>
+        <p class="text-gray-400 hover:text-gray-300">Pare-feu, MFA, chiffrement réseau</p>
+      </div>
+
+      <!-- Collaboration & Git -->
+      <div class="skill-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300">
+        <i class='bx bxl-git text-5xl text-pink-500 mb-4 hover:text-pink-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Collaboration & Git</h3>
+        <p class="text-gray-400 hover:text-gray-300">Git, GitHub, GitLab, Intégration continue</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-12">🚀 Mes projets</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Cotismart -->
+      <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300 relative z-10">
+        <i class='bx bx-money text-5xl text-green-500 mb-4 hover:text-green-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Cotismart</h3>
+        <p class="text-gray-400 hover:text-gray-300">Plateforme de cotisation en ligne avec gestion totale des finances.</p>
+        <a href="https://www.bit.ly/cotismart" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block px-6 py-2 bg-green-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-green-400 transition-all duration-300">Voir le projet</a>
+      </div>
+
+      <!-- Site Coiffure -->
+      <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300 relative z-10">
+        <i class='bx bx-cut text-5xl text-red-500 mb-4 hover:text-red-400'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Site de coiffure USA</h3>
+        <p class="text-gray-400 hover:text-gray-300">Site de présentation du salon de coiffure A&d Coiffure du monde.</p>
+        <a href="https://adcoiffure.com" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block px-6 py-2 bg-red-500 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-red-400 transition-all duration-300">Voir le projet</a>
+      </div>
+
+      <!-- Perenkap -->
+      <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-700 transition-all duration-300 relative z-10">
+        <i class='bx bx-dollar-circle text-5xl text-yellow-400 mb-4 hover:text-yellow-300'></i>
+        <h3 class="text-2xl font-semibold mb-2 hover:text-white">Perenkap</h3>
+        <p class="text-gray-400 hover:text-gray-300">Backend pour fintech avec API tierces et traitement de données sensibles.</p>
+        <a href="https://bit.ly/perenkap_cm" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block px-6 py-2 bg-yellow-400 text-white text-sm font-semibold rounded-lg shadow-md hover:bg-yellow-300 transition-all duration-300">Voir le projet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- GSAP Animations -->
+<script>
+  // Skills Section Animation
+  gsap.utils.toArray(".skill-card").forEach((card, index) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+      },
+      opacity: 0,
+      x: -50,
+      duration: 0.8,
+      ease: "power3.out",
+      delay: index * 0.2
+    });
+  });
+
+  // Projects Section Animation
+  gsap.utils.toArray(".project-card").forEach((card, index) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+      },
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      delay: index * 0.2
+    });
+  });
+</script>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 px-6 bg-gray-900 text-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-10">📬 Contactez-moi</h2>
+    <form class="space-y-6">
+      <input 
+        type="text" 
+        placeholder="Votre nom" 
+        class="w-full px-4 py-3 bg-gray-800 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+      >
+      <input 
+        type="email" 
+        placeholder="Votre email" 
+        class="w-full px-4 py-3 bg-gray-800 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+      >
+      <textarea 
+        rows="5"
+        placeholder="Votre message..." 
+        class="w-full px-4 py-3 bg-gray-800 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+      ></textarea>
+      <button 
+        type="submit" 
+        class="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-white font-semibold hover:from-purple-600 hover:to-blue-500 transition duration-300"
+      >
+        Envoyer ✉️
+      </button>
+    </form>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-6">
+    <div class="max-w-4xl mx-auto flex flex-col items-center space-y-6">
+      <h3 class="text-xl font-semibold text-white">Restons connectés !</h3>
+      
+      <div class="flex space-x-6 text-2xl">
+        <a href="https://github.com/adelpheangelo04" target="_blank" class="hover:text-white transition">
+          <i class='bx bxl-github'></i>
+        </a>
+        <a href="https://linkedin.com/in/tonprofil" target="_blank" class="hover:text-white transition">
+          <i class='bx bxl-linkedin-square'></i>
+        </a>
+        <a href="https://twitter.com/tonprofil" target="_blank" class="hover:text-white transition">
+          <i class='bx bxl-twitter'></i>
+        </a>
+        <a href="mailto:tonmail@example.com" class="hover:text-white transition">
+          <i class='bx bx-envelope'></i>
+        </a>
+        <a href="https://wa.me/tonnumero" target="_blank" class="hover:text-white transition">
+          <i class='bx bxl-whatsapp'></i>
+        </a>
+      </div>
+  
+      <p class="text-sm text-gray-500">© 2025 Adelphe Angelo. Tous droits réservés.</p>
+    </div>
+  </footer>
+  
+
+  <!-- Script for Mobile Menu -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+<!-- GSAP Animations -->
+<script>
+  // Hero Section Animation
+  gsap.from("#home h1", {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: "power3.out",
+    delay: 0.5
+  });
+
+  gsap.from("#home button", {
+    opacity: 0,
+    y: 50,
+    duration: 1.5,
+    ease: "power3.out",
+    delay: 1
+  });
+
+  // Parallax Effect
+  gsap.to(".parallax-bg", {
+    scrollTrigger: {
+      trigger: "#home",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+    },
+    scale: 1.5,
+    ease: "none"
+  });
+
+</script>
+
+</body>
+</html>

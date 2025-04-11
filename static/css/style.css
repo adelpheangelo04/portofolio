@@ -1,0 +1,10 @@
+.menu-enter {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .menu-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
